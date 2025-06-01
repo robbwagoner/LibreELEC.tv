@@ -28,3 +28,7 @@ include distroconfig.txt
 # uncomment to enable infrared remote receiver connected to GPIO 18
 #dtoverlay=gpio-ir,gpio_pin=18
 
+# RPi5 Radxa Penta SATA Hat
+# https://docs.radxa.com/en/accessories/penta-sata-hat/penta-for-rpi5
+dtparam=pciex1
+dtparam=pciex1_gen=3

@@ -1,0 +1,2 @@
+# Automatically mount Linux RAID MD devices
+ACTION=="add", SUBSYSTEM=="block", KERNEL=="md*", ENV{DEVTYPE}=="disk", RUN+="/usr/bin/mount-md-device.sh %k"
