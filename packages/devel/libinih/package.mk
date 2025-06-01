@@ -1,0 +1,11 @@
+PKG_NAME="libinih"
+PKG_LONGDESC="inih (INI Not Invented Here) is a simple .INI file parser written in C."
+PKG_MAINTAINER="robb.wagoner@gmail.com"
+
+PKG_VERSION="r60"
+PKG_SHA256="706aa05c888b53bd170e5d8aa8f8a9d9ccf5449dfed262d5103d1f292af26774"
+PKG_LICENSE="New BSD"
+PKG_SITE="https://github.com/benhoyt/inih"
+PKG_URL="https://github.com/benhoyt/inih/archive/refs/tags/${PKG_VERSION}.tar.gz"
+PKG_DEPENDS_TARGET="toolchain"
+PKG_DEPENDS_HOST="meson:host"
