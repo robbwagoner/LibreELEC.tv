@@ -1,10 +1,10 @@
-# ORIGIN: https://forum.libreelec.tv/thread/21568-add-mdadm/
-#
 # SPDX-License-Identifier: GPL-2.0
-# Copyright (C) 2020-present Team LibreELEC (https://libreelec.tv)
+# Copyright (C) 2025-present Robb Wagoner (robb.wagoner@protonmail.com)
+#
+# ORIGIN: https://forum.libreelec.tv/thread/21568-add-mdadm/
 PKG_NAME="mdadm"
 PKG_LONGDESC="mdadm is a tool for managing Linux Software RAID arrays."
-PKG_MAINTAINER="robb.wagoner@gmail.com"
+PKG_MAINTAINER="robb.wagoner@protonmail.com"
 
 PKG_VERSION="4.4"
 PKG_SHA256="680fed532857088e0cd87c56c00033ae35eae0a3f9cb7e1523b345ba8717fb93"

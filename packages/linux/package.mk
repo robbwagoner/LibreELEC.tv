@@ -147,6 +147,22 @@ pre_make_target() {
     ${PKG_BUILD}/scripts/config --disable CONFIG_WIREGUARD
   fi
 
+  echo "---------------------------------------------------------------"
+  echo "Enabling SATA and Raid Drivers for Radxa PENTA PiHAT"
+  echo "---------------------------------------------------------------"
+  ${PKG_BUILD}/scripts/config --enable CONFIG_ATA
+  ${PKG_BUILD}/scripts/config --enable CONFIG_SATA_HOST
+  ${PKG_BUILD}/scripts/config --enable CONFIG_SATA_AHCI
+  ${PKG_BUILD}/scripts/config --enable CONFIG_SATA_PMP
+  ${PKG_BUILD}/scripts/config --enable CONFIG_BLK_DEV_MD
+  ${PKG_BUILD}/scripts/config --enable CONFIG_MD_AUTODETECT
+  ${PKG_BUILD}/scripts/config --enable CONFIG_MD_LINEAR
+  ${PKG_BUILD}/scripts/config --enable CONFIG_MD_RAID0
+  ${PKG_BUILD}/scripts/config --enable CONFIG_MD_RAID1
+  ${PKG_BUILD}/scripts/config --enable CONFIG_MD_RAID10
+  ${PKG_BUILD}/scripts/config --enable CONFIG_MD_RAID456
+  echo "Done."
+
   if [ "${TARGET_ARCH}" = "x86_64" ]; then
     # copy some extra firmware to linux tree
     mkdir -p ${PKG_BUILD}/external-firmware
@@ -196,6 +212,10 @@ pre_make_target() {
       print_color CLR_WARNING "LINUX: kernel options not correct: \n${MISSING_KERNEL_OPTIONS%%}\nPlease run ./tools/check_kernel_config\n"
     fi
   fi
+
+  # Vet that the drivers for using the Radxa PENTA PiHAT are present
+  echo "SATA and Raid drivers"
+  grep -E "^(CONFIG_MD_|CONFIG_ATA=|CONFIG_SATA)" ${PKG_BUILD}/.config
 }
 
 make_target() {
